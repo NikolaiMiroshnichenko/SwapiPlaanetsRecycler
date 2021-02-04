@@ -19,13 +19,13 @@ namespace SwapiPlaanetsRecycler
         public string Name { get; set; }
 
         [JsonProperty("rotation_period")]
-        public long RotationPeriod { get; set; }
+        public string RotationPeriod { get; set; }
 
         [JsonProperty("orbital_period")]
-        public long OrbitalPeriod { get; set; }
+        public string OrbitalPeriod { get; set; }
 
         [JsonProperty("diameter")]
-        public long Diameter { get; set; }
+        public string Diameter { get; set; }
 
         [JsonProperty("climate")]
         public string Climate { get; set; }
@@ -37,7 +37,7 @@ namespace SwapiPlaanetsRecycler
         public string Terrain { get; set; }
 
         [JsonProperty("surface_water")]
-        public long SurfaceWater { get; set; }
+        public string SurfaceWater { get; set; }
 
         [JsonProperty("population")]
         public string Population { get; set; }

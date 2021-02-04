@@ -15,8 +15,7 @@ namespace SwapiPlaanetsRecycler
 {
     public interface IPlanetsApi
     {
-        [Get("/planets}")]
-
-        Task<Planet> GetPlanetById();
+        [Get("/planets/?page={pageNumber}")]
+        Task<PlanetsResponse> GetPlanets(string pageNumber);
     }
 }
