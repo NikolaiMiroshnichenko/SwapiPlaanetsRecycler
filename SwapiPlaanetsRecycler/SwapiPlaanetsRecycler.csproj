@@ -61,12 +61,12 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPlanetsApi.cs" />
+    <Compile Include="Services\IPlanetsApi.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Planet.cs" />
-    <Compile Include="PlanetAdapter.cs" />
-    <Compile Include="PlanetsResponse.cs" />
-    <Compile Include="PlanetViewHolder.cs" />
+    <Compile Include="Models\Planet.cs" />
+    <Compile Include="Adapters\PlanetAdapter.cs" />
+    <Compile Include="Models\PlanetsResponse.cs" />
+    <Compile Include="ViewHolders\PlanetViewHolder.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

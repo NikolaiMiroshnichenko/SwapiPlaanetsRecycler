@@ -32,13 +32,9 @@ namespace SwapiPlaanetsRecycler
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
-                      
 
-            var client = new HttpClient(new NativeMessageHandler())
-            {
-                BaseAddress = new Uri("https://swapi.dev/api")
-            };
-            _planetsApi = RestService.For<IPlanetsApi>(client);
+            InitializeRestServices();
+
             _editText = FindViewById<EditText>(Resource.Id.editText1);
 
             _recyclerView = (RecyclerView)FindViewById(Resource.Id.list);
@@ -47,6 +43,17 @@ namespace SwapiPlaanetsRecycler
             _recyclerView.SetAdapter(_adapter);
             _editText.TextChanged += EditTextTextChanged;
             InitialisePlanetsList();
+        }
+
+        protected override void OnStop()
+        {
+            _editText.TextChanged -= EditTextTextChanged;
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            _editText.TextChanged += EditTextTextChanged;
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -125,6 +132,7 @@ namespace SwapiPlaanetsRecycler
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
                 }
             });
         }
@@ -133,6 +141,15 @@ namespace SwapiPlaanetsRecycler
         {
             _planetNumber = _editText.Text;
              InitialisePlanetsList();
+        }
+
+        private void InitializeRestServices()
+        {
+            var client = new HttpClient(new NativeMessageHandler())
+            {
+                BaseAddress = new Uri("https://swapi.dev/api")
+            };
+            _planetsApi = RestService.For<IPlanetsApi>(client);
         }
     }
 }
