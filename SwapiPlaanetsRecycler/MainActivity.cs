@@ -47,6 +47,7 @@ namespace SwapiPlaanetsRecycler
 
         protected override void OnStop()
         {
+            base.OnStop();
             _editText.TextChanged -= EditTextTextChanged;
         }
 
